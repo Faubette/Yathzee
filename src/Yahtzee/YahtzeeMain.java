@@ -8,6 +8,10 @@ public class YahtzeeMain {
 	}
 	
 	/*
+	 * UPPER COMBINATION
+	 */
+	
+	/*
 	 * Generer des nombre aléatoire dans les 5 dés
 	 */
 
@@ -22,7 +26,6 @@ public class YahtzeeMain {
 		return count;
 	}
 
-	/*-------------------------------------------------------------------------*/
 
 	/*
 	 * Combinaison de 1 autant que possible (max 5 des )
@@ -120,4 +123,30 @@ public class YahtzeeMain {
 
 	}
 	
+	/*-------------------------------------------------------------------------*/
+	
+	/*
+	 * LOWER COMBINATION
+	 */
+	
+	/*
+	 * Combinaison BRELAN
+	 */
+	public int lowerCombinaison_BRELAN(Dice dice[]) {
+		int count = 0;
+		boolean isBrelan = false;
+
+		for (Dice des : dice) {
+			if (getNumberOfDice(dice, des.valueDice) == 3) {
+				isBrelan = true;
+			}
+			count += des.valueDice;
+		}
+		if (isBrelan == true) {
+			return count;
+		} else {
+			return 0;
+		}
+
+	}
 }

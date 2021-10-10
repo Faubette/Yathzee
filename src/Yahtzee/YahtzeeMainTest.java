@@ -1,5 +1,6 @@
 package Yahtzee;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -162,5 +163,37 @@ class YahtzeeMainTest {
 			dice[i].valueDice = 3;
 		}
 		assertEquals(18, yathzee.upperCombination_SIX(dice));
+	}
+	
+	/**
+	 * Cas BRELAN : 3 des identiques
+	 */
+	
+	@Test
+	void testLowerCombinaison_BRELAN() {
+		YahtzeeMain yathzee = new YahtzeeMain();
+
+		Dice dice[] = { new Dice(), new Dice(), new Dice(), new Dice(), new Dice() };
+		for (int i = 0; i < 5; i++) {
+			if (i < 3) {
+
+				dice[i].valueDice = 3;
+
+			} else {
+				dice[i].valueDice = 2;
+			}
+		}
+		assertEquals(13, yathzee.lowerCombinaison_BRELAN(dice));
+
+		for (int i = 0; i < 5; i++) {
+			if (i < 3) {
+
+				dice[i].valueDice = 5;
+
+			} else {
+				dice[i].valueDice = 4;
+			}
+		}
+		assertEquals(23, yathzee.lowerCombinaison_BRELAN(dice));
 	}
 }
