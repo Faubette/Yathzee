@@ -25,7 +25,7 @@ public class YahtzeeMain {
 	/*-------------------------------------------------------------------------*/
 	
 	/*
-	 * Combinaison de 1 autant que possible (max 5 des 1)
+	 * Combinaison de 1 autant que possible (max 5 des )
 	 */
 
 	public int upperCombination_UN(Dice[] dice) {
@@ -42,7 +42,7 @@ public class YahtzeeMain {
 	
 	
 	/*
-	 * Combinaison de 2 autant que possible (max 5 des 1)
+	 * Combinaison de 2 autant que possible (max 5 des )
 	 */
 		public int upperCombination_DEUX(Dice dice[]) {
 			int count = 0;
@@ -56,4 +56,20 @@ public class YahtzeeMain {
 			return count;
 
 		}
+		
+		/*
+		 * Combinaison de 3 autant que possible (max 5 des )
+		 */
+			public int upperCombination_TROIS(Dice dice[]) {
+				int count = 0;
+
+				for (Dice des : dice) {
+					if (des.valueDice == 3) {
+						count += 3;
+					}
+				}
+
+				return count;
+
+			}
 }
