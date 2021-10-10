@@ -41,5 +41,19 @@ public class YahtzeeMain {
 	}
 	
 	
-	
+	/*
+	 * Combinaison de 2 autant que possible (max 5 des 1)
+	 */
+		public int upperCombination_DEUX(Dice dice[]) {
+			int count = 0;
+
+			for (Dice des : dice) {
+				if (des.valueDice == 2) {
+					count += 2;
+				}
+			}
+
+			return count;
+
+		}
 }
