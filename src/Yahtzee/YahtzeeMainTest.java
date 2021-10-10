@@ -24,13 +24,33 @@ class YahtzeeMainTest {
 
 		assertEquals(5, yathzee.upperCombination_UN(dice));
 
-		/*---------------------CAS 3 des à 1 & 2 des à 4 -------------------------------*/
+		/*---------------------CAS : 3 des à 1 & 2 des à 4 -------------------------------*/
 
 		for (int i = 0; i < 2; i++) {
 			dice[i].valueDice = 4;
 		}
 		assertEquals(3, yathzee.upperCombination_UN(dice));
 
+	}
+	
+	@Test
+	void testUpperCombination_DEUX() {
+		
+		YahtzeeMain yathzee = new YahtzeeMain();
+		
+		Dice dice[] = {new Dice(), new Dice(), new Dice(), new Dice(), new Dice()};
+		
+		for(Dice des : dice) {
+			des.valueDice = 2;
+		}
+		assertEquals(10, yathzee.upperCombination_DEUX(dice));
+		
+		/*---------------------CAS : 3 des à 2 & 2 des à 4 -------------------------------*/
+		
+		for (int i = 0; i<2; i++) {
+			dice[i].valueDice = 4;
+		}
+		assertEquals(6, yathzee.upperCombination_DEUX(dice));
 	}
 
 }

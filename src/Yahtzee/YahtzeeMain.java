@@ -24,6 +24,9 @@ public class YahtzeeMain {
 	
 	/*-------------------------------------------------------------------------*/
 	
+	/*
+	 * Combinaison de 1 autant que possible (max 5 des 1)
+	 */
 
 	public int upperCombination_UN(Dice[] dice) {
 		
@@ -36,5 +39,7 @@ public class YahtzeeMain {
 		}
 		return count;
 	}
+	
+	
 	
 }
