@@ -24,7 +24,7 @@ class YahtzeeMainTest {
 
 		assertEquals(5, yathzee.upperCombination_UN(dice));
 
-		/*-------------------------------------------------------------------------*/
+		/*---------------------CAS 3 des à 1 & 2 des à 4 -------------------------------*/
 
 		for (int i = 0; i < 2; i++) {
 			dice[i].valueDice = 4;
