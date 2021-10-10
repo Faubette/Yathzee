@@ -84,4 +84,83 @@ class YahtzeeMainTest {
 		}
 		assertEquals(9, yathzee.upperCombination_TROIS(dice));
 	}
+	
+	
+	/**
+	 * Quatrieme cas de test : UPPER COMBINATION Obtenez autant que possible de 4
+	 * Instancie les 5 dés à 4 -> return 20. 
+	 * Instancie 3 dés à 4 & 2 dés à 3 -> return 12.
+	 */
+
+	@Test
+	void testUpperCombination_QUATRE() {
+		
+		YahtzeeMain yathzee = new YahtzeeMain();
+		
+		Dice dice[] = {new Dice(), new Dice(), new Dice(), new Dice(), new Dice()};
+		
+		for(Dice des : dice) {
+			des.valueDice = 4;
+		}
+		assertEquals(20, yathzee.upperCombination_QUATRE(dice));
+		
+		/*---------------------CAS : 3 des à 4 & 2 des à 3 -------------------------------*/
+		
+		for (int i = 0; i<2; i++) {
+			dice[i].valueDice = 3;
+		}
+		assertEquals(12, yathzee.upperCombination_QUATRE(dice));
+	}
+	
+	/**
+	 * Cinquieme cas de test : UPPER COMBINATION Obtenez autant que possible de 5
+	 * Instancie les 5 dés à 5 -> return 25. 
+	 * Instancie 3 dés à 5 & 2 dés à 3 -> return 15.
+	 */
+
+	@Test
+	void testUpperCombination_CINQ() {
+		
+		YahtzeeMain yathzee = new YahtzeeMain();
+		
+		Dice dice[] = {new Dice(), new Dice(), new Dice(), new Dice(), new Dice()};
+		
+		for(Dice des : dice) {
+			des.valueDice = 5;
+		}
+		assertEquals(25, yathzee.upperCombination_CINQ(dice));
+		
+		/*---------------------CAS : 3 des à 5 & 2 des à 4 -------------------------------*/
+		
+		for (int i = 0; i<2; i++) {
+			dice[i].valueDice = 3;
+		}
+		assertEquals(15, yathzee.upperCombination_CINQ(dice));
+	}
+	
+	/**
+	 * Sixiemecas de test : UPPER COMBINATION Obtenez autant que possible de 5
+	 * Instancie les 5 dés à 6 -> return 30. 
+	 * Instancie 3 dés à 6 & 2 dés à 3 -> return 15.
+	 */
+
+	@Test
+	void testUpperCombination_SIX() {
+		
+		YahtzeeMain yathzee = new YahtzeeMain();
+		
+		Dice dice[] = {new Dice(), new Dice(), new Dice(), new Dice(), new Dice()};
+		
+		for(Dice des : dice) {
+			des.valueDice = 6;
+		}
+		assertEquals(30, yathzee.upperCombination_SIX(dice));
+		
+		/*---------------------CAS : 3 des à 6 & 2 des à 4 -------------------------------*/
+		
+		for (int i = 0; i<2; i++) {
+			dice[i].valueDice = 3;
+		}
+		assertEquals(18, yathzee.upperCombination_SIX(dice));
+	}
 }
