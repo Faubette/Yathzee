@@ -196,4 +196,141 @@ class YahtzeeMainTest {
 		}
 		assertEquals(23, yathzee.lowerCombinaison_BRELAN(dice));
 	}
+	
+	/**
+	 * Cas Four of Kind : 4 indentiques -> sum de tous les dés
+	 */
+	
+	@Test
+	void lowerCombinaison_Four_of_Kind() {
+		YahtzeeMain yathzee = new YahtzeeMain();
+
+		Dice dice[] = { new Dice(), new Dice(), new Dice(), new Dice(), new Dice() };
+		for (int i = 0; i < 5; i++) {
+			if (i < 4) {
+
+				dice[i].valueDice = 4;
+
+			} else {
+				dice[i].valueDice = 2;
+			}
+		}
+		assertEquals(18, yathzee.lowerCombinaison_Four_Of_Kind(dice));
+
+		for (int i = 0; i < 5; i++) {
+			if (i < 4) {
+
+				dice[i].valueDice = 3;
+
+			} else {
+				dice[i].valueDice = 4;
+			}
+		}
+		assertEquals(16, yathzee.lowerCombinaison_Four_Of_Kind(dice));
+	}
+
+	@Test
+	void lowerCombinaison_Full_House() {
+		YahtzeeMain yathzee = new YahtzeeMain();
+
+		Dice dice[] = { new Dice(), new Dice(), new Dice(), new Dice(), new Dice() };
+		for (int i = 0; i < 5; i++) {
+			if (i < 3) {
+
+				dice[i].valueDice = 4;
+
+			} else {
+				dice[i].valueDice = 2;
+			}
+		}
+		assertEquals(25, yathzee.lowerCombinaison_Full_House(dice));
+
+		for (int i = 0; i < 5; i++) {
+			if (i < 3) {
+
+				dice[i].valueDice = 3;
+
+			} else if (i == 4) {
+				dice[i].valueDice = 4;
+			} else {
+				dice[i].valueDice = 5;
+			}
+		}
+		assertEquals(0, yathzee.lowerCombinaison_Full_House(dice));
+	}
+	
+	@Test
+	void lowerSmallStraight() {
+		YahtzeeMain yathzee = new YahtzeeMain();
+		Dice dice[] = { new Dice(), new Dice(), new Dice(), new Dice(), new Dice() };
+		
+		//La Sequence est 1, 2, 3, 4, (6) 
+		for(int i = 0; i<5; i++) {
+			if(i<4) {
+				dice[i].valueDice = i + 1;
+			} else{
+				dice[i].valueDice = 6;
+			}
+		}
+		assertEquals(30, yathzee.lowerSmallStraight(dice));
+		
+		//La Sequence est (6), 1, 2, 3, 4 
+		for(int i = 0; i<5; i++) {
+			if(i>0) {
+				dice[i].valueDice = i;
+			} else{
+				dice[i].valueDice = 6;
+			}
+		}
+		assertEquals(30, yathzee.lowerSmallStraight(dice));
+		
+		//La Sequence est  2, 3, 4, 5, (1)
+		for(int i = 0; i<5; i++) {
+			if(i<4) {
+				dice[i].valueDice = i + 2;
+			} else{
+				dice[i].valueDice = 1;
+			}
+		}
+		assertEquals(30, yathzee.lowerSmallStraight(dice));
+		
+		//La Sequence est  (6) 2, 3, 4, 5
+		for(int i = 0; i<5; i++) {
+			if(i>0) {
+				dice[i].valueDice = i + 1;
+			} else{
+				dice[i].valueDice = 6;
+			}
+		}
+		assertEquals(30, yathzee.lowerSmallStraight(dice));
+		
+		//La Sequence est  (6), 3, 4, 5, 6
+			for(int i = 0; i<5; i++) {
+				if(i>0) {
+					dice[i].valueDice = i + 2;
+				} else{
+					dice[i].valueDice = 6;
+				}
+			}
+			assertEquals(30, yathzee.lowerSmallStraight(dice));
+			
+			//La Sequence est  3, 4, 5, 6, (1)
+			for(int i = 0; i<5; i++) {
+				if(i<4) {
+					dice[i].valueDice = i + 3;
+				} else{
+					dice[i].valueDice = 1;
+				}
+			}
+			assertEquals(30, yathzee.lowerSmallStraight(dice));
+			
+			//Pas de séquence
+			for(int i = 0; i<5; i++) {
+				dice[i].valueDice = 1;
+			}
+			assertEquals(0, yathzee.lowerSmallStraight(dice));
+	}
+	
+
+
 }
